@@ -23,12 +23,32 @@ function writePassword() {
 
 }
 
-// (4)
+// (4) prompt function designed to return boolean value of true only.
 function promptValues(){
-  
+  var chosenArray = [];
+  //confirms length of password to be 8 and 128 characters long. otherwise will continue to loop in prompt
+  while(lengthOfPassword < 8 || lengthOfPassword > 128){
+    lengthOfPassword = parseInt(window.prompt('Please provide a password length between 8 and 128.'))
+  }
+  //will have user confirm the use of upperCasedCharacters array or not.
+  if(confirm('Would you like to include uppercase letters in your password?')){
+    chosenArray = chosenArray.concat(upperCasedCharacters);
+  }
+  //will have user confirm the use of lowerCasedCharacters array or not.
+  if(confirm('Would you like to include lowercase letters in your password?')){
+    chosenArray = chosenArray.concat(lowerCasedCharacters);
+  }
+  //will have user confirm the use of numericCharacters array or not.
+  if(confirm('Would you like to include numeric characters in your password?')){
+    chosenArray = chosenArray.concat(numericCharacters);
+  }
+  //will have user confirm the use of specialCharacters array or not.
+  if(confirm('Would you like to include special characters in your password?')){
+    chosenArray = chosenArray.concat(specialCharacters);
+  }
+
+  return true;
 }
-
-
 
 
 // (5)
