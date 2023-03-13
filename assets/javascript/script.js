@@ -5,23 +5,26 @@ var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 var specialCharacters = ['@','%','+','\\','/',"'",'!','#','$','^','?',':',',',')','(','}','{',']','[','~','-','_','.',];
 
 
-// Assignment Code
+// (1)Assignment Code
 var generateBtn = document.querySelector("#generate");//(BEGINprogram) BIG RED generate botton on page JS linked to HTML aka BEGINprogram
 
-function generatePassword(){
+// (2) Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
 
-  return();//--->logs into page card. result will go here.
-}
-
-// Write password to the #password input
+// (3) Write password to the #password input
 function writePassword() {
-  var password = generatePassword();//undefined function. will need to create.
-  var passwordText = document.querySelector("#password");
+  var password = generatePassword();//(4)undefined function. will need to create.
+  var passwordText = document.querySelector("#password"); //will send back to HTML (ENDProgram)
 
   passwordText.value = password;//--> (ENDProgram)takes value of generatePassword function and pushes it to HTML cardbody textarea aka 'ENDProgram'
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// (4)
+function generatePassword(){
+
+  return('hello');//--->(end)logs into page card. result will go here.
+}
+
+
 
