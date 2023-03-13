@@ -16,16 +16,20 @@ generateBtn.addEventListener('click', writePassword);
 
 // (3) Write password to the #password input
 function writePassword() {
-  var password = generatePassword();//(4)undefined function. will need to create.
-  var passwordText = document.querySelector('#password'); //will send back to HTML (ENDProgram)
+  var trueBoo = promptValues();
 
-  passwordText.value = password;//--> (ENDProgram)takes value of generatePassword function and pushes it to HTML cardbody textarea aka 'ENDProgram'
+  if (trueBoo) {
+    var password = generatePassword(); //(4)undefined function. will need to create.
+    var passwordText = document.querySelector('#password'); //will send back to HTML (ENDProgram)
 
+    passwordText.value = password; //--> (ENDProgram)takes value of generatePassword function and pushes it to HTML cardbody textarea aka 'ENDProgram'
+  }
 }
 
 // (4) prompt function designed to return boolean value of true only.
 function promptValues(){
   var chosenArray = [];
+  lengthOfPassword = parseInt (prompt ('Please provide a password length between 8 and 128.'));
   //confirms length of password to be 8 and 128 characters long. otherwise will continue to loop in prompt
   while(lengthOfPassword < 8 || lengthOfPassword > 128){
     lengthOfPassword = parseInt(window.prompt('Please provide a password length between 8 and 128.'))
@@ -54,7 +58,7 @@ function promptValues(){
 // (5)
 function generatePassword(){
   var password = '';
-  for(var i = 0; i < lengthOfPassword; i++){
+  for(var i = 0; i < lengthOfPassword.length; i++){
       var randomI = Math.floor(Math.random() * chosenArray.length);
       password = password + chosenArray[randomI];
   }
