@@ -23,15 +23,23 @@ function writePassword() {
 
 }
 
-
-
 // (4)
+function promptValues(){
+  
+}
+
+
+
+
+// (5)
 function generatePassword(){
+  var password = '';
   for(var i = 0; i < lengthOfPassword; i++){
-      var randomI = Math.floor(Math.random() * chosenArray.length)
+      var randomI = Math.floor(Math.random() * chosenArray.length);
+      password = password + chosenArray[randomI];
   }
 
-  return('test');//--->(end)logs into page card. result will go here.
+  return password;//--->(end)logs into page card. result will go here.
 }
 
 
