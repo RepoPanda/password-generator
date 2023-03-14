@@ -16,38 +16,36 @@ generateBtn.addEventListener('click', writePassword);
 
 // (3) Write password to the #password input
 function writePassword() {
-  var trueBoo = promptValues();
+  var trueBoo = promptValues(); //(5)returns boolean value of promptValues
 
-  if (trueBoo) {
-    var password = generatePassword(); //(4)undefined function. will need to create.
-    var passwordText = document.querySelector('#password'); //will send back to HTML (ENDProgram)
+  if (trueBoo) {//(6)
+    var password = generatePassword(); //(7)undefined function. will need to create.
+    var passwordText = document.querySelector("#password"); //will send back to HTML (ENDProgram)
 
-    passwordText.value = password; //--> (ENDProgram)takes value of generatePassword function and pushes it to HTML cardbody textarea aka 'ENDProgram'
+    passwordText.value = password; //--> (8)(ENDProgram)takes value of generatePassword function and pushes it to HTML cardbody textarea aka 'ENDProgram'
   }
 }
 
-// (4) prompt function designed to return boolean value of true only.
-function promptValues(){
-  var chosenArray = [];
-  lengthOfPassword = parseInt (prompt ('Please provide a password length between 8 and 128.'));
-  //confirms length of password to be 8 and 128 characters long. otherwise will continue to loop in prompt
-  while(lengthOfPassword < 8 || lengthOfPassword > 128){
-    lengthOfPassword = parseInt(window.prompt('Please provide a password length between 8 and 128.'))
-  }
-  //will have user confirm the use of upperCasedCharacters array or not.
-  if(confirm('Would you like to include uppercase letters in your password?')){
-    chosenArray = chosenArray.concat(upperCasedCharacters);
+// (4)
+function promptValues() {
+  chosenArray = [];
+
+  lengthOfPassword = parseInt(prompt("Please provide a numerical password length between 8 and 128."));
+
+  if(isNaN(lengthOfPassword) || lengthOfPassword < 8 || lengthOfPassword >128) {
+    alert('Error! Please try again. Please provide a numeric number length between 8 and 128.');
+    return false;
   }
   //will have user confirm the use of lowerCasedCharacters array or not.
-  if(confirm('Would you like to include lowercase letters in your password?')){
+  if (confirm("Would you like to include lowercase letters in your password?")) {
     chosenArray = chosenArray.concat(lowerCasedCharacters);
   }
   //will have user confirm the use of numericCharacters array or not.
-  if(confirm('Would you like to include numeric characters in your password?')){
+  if (confirm("Would you like to include numeric characters in your password?")) {
     chosenArray = chosenArray.concat(numericCharacters);
   }
   //will have user confirm the use of specialCharacters array or not.
-  if(confirm('Would you like to include special characters in your password?')){
+  if (confirm("Would you like to include special characters in your password?")) {
     chosenArray = chosenArray.concat(specialCharacters);
   }
 
@@ -55,10 +53,12 @@ function promptValues(){
 }
 
 
+
+
 // (5)
 function generatePassword(){
   var password = '';
-  for(var i = 0; i < lengthOfPassword.length; i++){
+  for(var i = 0; i < lengthOfPassword; i++){
       var randomI = Math.floor(Math.random() * chosenArray.length);
       password = password + chosenArray[randomI];
   }
