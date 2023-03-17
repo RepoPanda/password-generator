@@ -36,6 +36,10 @@ function promptValues() {
     alert('Error! Please try again. Please provide a numeric number length between 8 and 128.');
     return false;
   }
+  //will have user confirm the use of upperCasedCharacters array or not.
+  if (confirm("Would you like to include uppercase letters in your password?")) {
+    chosenArray = chosenArray.concat(upperCasedCharacters);
+  }
   //will have user confirm the use of lowerCasedCharacters array or not.
   if (confirm("Would you like to include lowercase letters in your password?")) {
     chosenArray = chosenArray.concat(lowerCasedCharacters);
