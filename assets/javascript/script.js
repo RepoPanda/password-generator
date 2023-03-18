@@ -33,7 +33,7 @@ function promptValues() {
   lengthOfPassword = parseInt(prompt("Please provide a numerical password length between 8 and 128."));
 
   if(isNaN(lengthOfPassword) || lengthOfPassword < 8 || lengthOfPassword >128) {
-    alert('Error! Please try again. Please provide a numeric number length between 8 and 128.');
+    alert('Not a valid entry. Please try again. Please provide a numeric number length between 8 and 128.');
     return false;
   }
   //will have user confirm the use of upperCasedCharacters array or not.
