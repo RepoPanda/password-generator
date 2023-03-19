@@ -16,22 +16,22 @@ generateBtn.addEventListener('click', writePassword);
 
 // (3) Write password to the #password input
 function writePassword() {
-  var trueBoo = promptValues(); //(5)returns boolean value of promptValues
+  var trueBoo = promptValues(); //(4) activates promptValues function to (5)return boolean value of promptValues function
 
-  if (trueBoo) {//(6)
-    var password = generatePassword(); //(7)undefined function. will need to create.
+  if (trueBoo) {//(6) True boolean value provided from promptValues function will activate generatePaasword function
+    var password = generatePassword(); //(7)generatePassword returns string value and assigns it to password
     var passwordText = document.querySelector("#password"); //will send back to HTML (ENDProgram)
 
-    passwordText.value = password; //--> (8)(ENDProgram)takes value of generatePassword function and pushes it to HTML cardbody textarea aka 'ENDProgram'
+    passwordText.value = password; //--> (8)(ENDProgram)takes value of generatePassword function and pushes it to HTML cardbody textarea aka 'ENDProgram' on line 23
   }
 }
 
 // (4)
 function promptValues() {
   chosenArray = [];
-
+  //prompt to assign numerical value to of pw
   lengthOfPassword = parseInt(prompt("Please provide a numerical password length between 8 and 128."));
-
+  // prevents inputs of non-number values and numercial values outside of 8-128 range
   if(isNaN(lengthOfPassword) || lengthOfPassword < 8 || lengthOfPassword >128) {
     alert('Not a valid entry. Please try again. Please provide a numeric number length between 8 and 128.');
     return false;
@@ -59,7 +59,7 @@ function promptValues() {
 
 
 
-// (5)
+// (5) function that generates then gives string value to 'password' variable based on lengthOfPaasword value(s)
 function generatePassword(){
   var password = '';
   for(var i = 0; i < lengthOfPassword; i++){
